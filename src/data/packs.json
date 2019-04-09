@@ -1,0 +1,148 @@
+{
+  "packs": [
+    {
+      "name": "Absurd Box Expansion",
+      "id": "absurd_box_expansion",
+      "quantity": {
+        "black": 45,
+        "white": 255,
+        "total": 300
+      }
+    },
+    {
+      "name": "Bigger Black Box Expansion",
+      "id": "bigger_black_box_expansion",
+      "quantity": {
+        "black": 0,
+        "white": 23,
+        "total": 23
+      }
+    },
+    {
+      "name": "Blue Box Expansion",
+      "id": "blue_box_expansion",
+      "quantity": {
+        "black": 81,
+        "white": 234,
+        "total": 315
+      }
+    },
+    {
+      "name": "Canadian Conversion Kit",
+      "id": "canadian_conversion_kit",
+      "quantity": {
+        "black": 7,
+        "white": 22,
+        "total": 29
+      }
+    },
+    {
+      "name": "Card Lab Expansion",
+      "id": "card_lab_expansion",
+      "quantity": {
+        "black": 73,
+        "white": 963,
+        "total": 1036
+      }
+    },
+    {
+      "name": "Fifth Expansion",
+      "id": "fifth_expansion",
+      "quantity": {
+        "black": 25,
+        "white": 78,
+        "total": 103
+      }
+    },
+    {
+      "name": "First Expanion",
+      "id": "first_expansion",
+      "quantity": {
+        "black": 28,
+        "white": 112,
+        "total": 140
+      }
+    },
+    {
+      "name": "Fourth Expansion",
+      "id": "fourth_expansion",
+      "quantity": {
+        "black": 31,
+        "white": 71,
+        "total": 102
+      }
+    },
+    {
+      "name": "Green Box Expansion",
+      "id": "green_box_expansion",
+      "quantity": {
+        "black": 56,
+        "white": 246,
+        "total": 302
+      }
+    },
+    {
+      "name": "Main Deck",
+      "id": "main_deck",
+      "quantity": {
+        "black": 282,
+        "white": 1255,
+        "total": 1537
+      }
+    },
+    {
+      "name": "Procedurally Generated Expansion",
+      "id": "procedurally_expansion",
+      "quantity": {
+        "black": 0,
+        "white": 260,
+        "total": 260
+      }
+    },
+    {
+      "name": "Red Box Expansion",
+      "id": "red_box_expansion",
+      "quantity": {
+        "black": 73,
+        "white": 267,
+        "total": 340
+      }
+    },
+    {
+      "name": "Second Expansion",
+      "id": "second_expansion",
+      "quantity": {
+        "black": 28,
+        "white": 84,
+        "total": 112
+      }
+    },
+    {
+      "name": "Sixth Expansion",
+      "id": "sixth_expansion",
+      "quantity": {
+        "black": 26,
+        "white": 77,
+        "total": 103
+      }
+    },
+    {
+      "name": "Third Expansion",
+      "id": "third_expansion",
+      "quantity": {
+        "black": 25,
+        "white": 77,
+        "total": 102
+      }
+    },
+    {
+      "name": "UK Conversion Kit",
+      "id": "uk_conversion_kit",
+      "quantity": {
+        "black": 20,
+        "white": 74,
+        "total": 94
+      }
+    }
+  ]
+}

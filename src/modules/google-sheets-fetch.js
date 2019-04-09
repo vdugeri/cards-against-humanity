@@ -1,4 +1,5 @@
 const { Pack } = require('./classes/Pack.js');
+const fs = require('fs');
 
 // ID of the Google Sheets with all the data
 const spreadsheetID = '1NeIMmSMT3nYv_YzucrToYouA4SMWTWr8G18lfCE61ZM';
@@ -73,12 +74,41 @@ for (const key in RANGES) {
 }
 
 // Fetch all packs.
+let promises = [];
 let i = 0;
 const totalPacks = Object.keys(PACKNAMES).length;
+
+console.log('Fetching expansion packs...');
 for (const key in PACKNAMES) {
   const pack = new Pack(spreadsheetID, key, PACKNAMES[key], RANGES[key]);
-  pack.fetchData().then( name => {
+  promises.push(pack.fetchData().then( name => {
     i++;
     console.log(`[${Math.floor(100 * i / totalPacks)}%] - Fetched ${name}.`);
-  }).catch(err => console.error(err))
+  }).catch(err => console.error(err)))
 }
+
+// Fetching ends here.
+Promise.all(promises).then(() => {
+  // Create JSON with data from all expansion packs.
+  let allPacks = {
+    "packs": []
+  }
+
+  const packFiles = fs.readdirSync('./src/data/packs').filter(file => file.endsWith('.json'));
+  for (const file of packFiles) {
+    const pack = require('../data/packs/' + file);
+    allPacks.packs.push({
+      "name": pack.pack.name,
+      "id": pack.pack.id,
+      "quantity": pack.quantity
+    });
+  }
+
+  fs.writeFileSync('./src/data/packs.json', JSON.stringify(allPacks, null, 2), function(err) {
+    if (err) return console.log(err); 
+  });
+
+  console.log('Created JSON with data from all expansions data.');
+
+}).catch(err => console.error(err));
+
