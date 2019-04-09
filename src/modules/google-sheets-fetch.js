@@ -1,6 +1,10 @@
 const { Pack } = require('./classes/Pack.js');
 const fs = require('fs');
 
+// Pack Directory Paths
+const absolutePath = './data/packs/';
+const relativePath = '../../data/packs/';
+
 // ID of the Google Sheets with all the data
 const spreadsheetID = '1NeIMmSMT3nYv_YzucrToYouA4SMWTWr8G18lfCE61ZM';
 
@@ -94,9 +98,9 @@ Promise.all(promises).then(() => {
     "packs": []
   }
 
-  const packFiles = fs.readdirSync('./src/data/packs').filter(file => file.endsWith('.json'));
+  const packFiles = fs.readdirSync(absolutePath).filter(file => file.endsWith('.json'));
   for (const file of packFiles) {
-    const pack = require('../data/packs/' + file);
+    const pack = require(relativePath + file);
     allPacks.packs.push({
       "name": pack.pack.name,
       "id": pack.pack.id,
@@ -104,7 +108,7 @@ Promise.all(promises).then(() => {
     });
   }
 
-  fs.writeFileSync('./src/data/packs.json', JSON.stringify(allPacks, null, 2), function(err) {
+  fs.writeFileSync('./data/packs.json', JSON.stringify(allPacks, null, 2), function(err) {
     if (err) return console.log(err); 
   });
 
