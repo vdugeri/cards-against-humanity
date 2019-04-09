@@ -73,7 +73,12 @@ for (const key in RANGES) {
 }
 
 // Fetch all packs.
+let i = 0;
+const totalPacks = Object.keys(PACKNAMES).length;
 for (const key in PACKNAMES) {
   const pack = new Pack(spreadsheetID, key, PACKNAMES[key], RANGES[key]);
-  pack.fetchData();
+  pack.fetchData().then( name => {
+    i++;
+    console.log(`[${Math.floor(100 * i / totalPacks)}%] - Fetched ${name}.`);
+  }).catch(err => console.error(err))
 }

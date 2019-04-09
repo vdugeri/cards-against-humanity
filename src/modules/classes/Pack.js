@@ -19,52 +19,61 @@ class Pack {
   }
 
   fetchData() {
-    GoogleSpreadsheets({
-      key: this.spreadsheetID,
-      auth: null
-    }, (err, spreadsheet) => {
-      if (err) console.error(err);
-      spreadsheet.worksheets[this.worksheet].cells({
-        range: this.whiteRange
-      }, (err, cells) => {
-        if (err) console.error(err);
-        for(const row in cells.cells) {
-          for (const col in cells.cells[row]) {
-            this.pack.white.push(cells.cells[row][col].value);
-          }
-        }
-        
-        // Since every pack has at least white cards, we can afford to omit the black ones in case they don't exist.
-        if (this.blackRange) {
-          spreadsheet.worksheets[this.worksheet].cells({
-            range: this.blackRange
+    const self = this;
+    return new Promise(function(resolve, reject) {
+      try {
+        GoogleSpreadsheets({
+          key: self.spreadsheetID,
+          auth: null
+        }, (err, spreadsheet) => {
+          if (err) console.error(err);
+          spreadsheet.worksheets[self.worksheet].cells({
+            range: self.whiteRange
           }, (err, cells) => {
             if (err) console.error(err);
-            for (const row in cells.cells) {
-              const obj = cells.cells[row];
-              const special = obj[Object.keys(obj)[1]] ? obj[Object.keys(obj)[1]].value.split(' ') : [];
-              
-              const pickIndex = special.indexOf('PICK');
-              const drawIndex = special.indexOf('DRAW');
-              const pick = pickIndex > -1 ? parseInt(special[pickIndex + 1]) : 1;
-              const draw = drawIndex > -1 ? parseInt(special[drawIndex + 1]) : 1;
-    
-              this.pack.black.push({
-                'content': obj[Object.keys(obj)[0]].value,
-                'pick': pick,
-                'draw' : draw
-              });
+            for(const row in cells.cells) {
+              for (const col in cells.cells[row]) {
+                self.pack.white.push(cells.cells[row][col].value);
+              }
             }
-  
-            this._setQuantity();
-            this._writeData();
+            
+            // Since every pack has at least white cards, we can afford to omit the black ones in case they don't exist.
+            if (self.blackRange) {
+              spreadsheet.worksheets[self.worksheet].cells({
+                range: self.blackRange
+              }, (err, cells) => {
+                if (err) console.error(err);
+                for (const row in cells.cells) {
+                  const obj = cells.cells[row];
+                  const special = obj[Object.keys(obj)[1]] ? obj[Object.keys(obj)[1]].value.split(' ') : [];
+                  
+                  const pickIndex = special.indexOf('PICK');
+                  const drawIndex = special.indexOf('DRAW');
+                  const pick = pickIndex > -1 ? parseInt(special[pickIndex + 1]) : 1;
+                  const draw = drawIndex > -1 ? parseInt(special[drawIndex + 1]) : 1;
+        
+                  self.pack.black.push({
+                    'content': obj[Object.keys(obj)[0]].value,
+                    'pick': pick,
+                    'draw' : draw
+                  });
+                }
+      
+                self._setQuantity();
+                self._writeData();
+                resolve(self.packName);
+              });
+            } else {
+              self._setQuantity();
+              self._writeData();
+              resolve(self.packName);
+            }
           });
-        } else {
-          this._setQuantity();
-          this._writeData();
-        }
-      });
-    });
+        });
+      } catch(err) {
+        reject(err)
+      }
+    })
   }
 
   _loadPackJSON() {
