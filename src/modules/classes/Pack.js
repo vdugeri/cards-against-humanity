@@ -33,30 +33,36 @@ class Pack {
             this.pack.white.push(cells.cells[row][col].value);
           }
         }
-
-        spreadsheet.worksheets[this.worksheet].cells({
-          range: this.blackRange
-        }, (err, cells) => {
-          if (err) console.error(err);
-          for (const row in cells.cells) {
-            const obj = cells.cells[row];
-            const special = obj[Object.keys(obj)[1]] ? obj[Object.keys(obj)[1]].value.split(' ') : [];
-            
-            const pickIndex = special.indexOf('PICK');
-            const drawIndex = special.indexOf('DRAW');
-            const pick = pickIndex > -1 ? parseInt(special[pickIndex + 1]) : 1;
-            const draw = drawIndex > -1 ? parseInt(special[drawIndex + 1]) : 1;
+        
+        // Since every pack has at least white cards, we can afford to omit the black ones in case they don't exist.
+        if (this.blackRange) {
+          spreadsheet.worksheets[this.worksheet].cells({
+            range: this.blackRange
+          }, (err, cells) => {
+            if (err) console.error(err);
+            for (const row in cells.cells) {
+              const obj = cells.cells[row];
+              const special = obj[Object.keys(obj)[1]] ? obj[Object.keys(obj)[1]].value.split(' ') : [];
+              
+              const pickIndex = special.indexOf('PICK');
+              const drawIndex = special.indexOf('DRAW');
+              const pick = pickIndex > -1 ? parseInt(special[pickIndex + 1]) : 1;
+              const draw = drawIndex > -1 ? parseInt(special[drawIndex + 1]) : 1;
+    
+              this.pack.black.push({
+                'content': obj[Object.keys(obj)[0]].value,
+                'pick': pick,
+                'draw' : draw
+              });
+            }
   
-            this.pack.black.push({
-              'content': obj[Object.keys(obj)[0]].value,
-              'pick': pick,
-              'draw' : draw
-            });
-          }
-
+            this._setQuantity();
+            this._writeData();
+          });
+        } else {
           this._setQuantity();
           this._writeData();
-        });
+        }
       });
     });
   }
