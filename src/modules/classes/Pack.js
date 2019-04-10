@@ -19,28 +19,27 @@ class Pack {
   }
 
   fetchData() {
-    const self = this;
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
       try {
         GoogleSpreadsheets({
-          key: self.spreadsheetID,
+          key: this.spreadsheetID,
           auth: null
         }, (err, spreadsheet) => {
           if (err) console.error(err);
-          spreadsheet.worksheets[self.worksheet].cells({
-            range: self.whiteRange
+          spreadsheet.worksheets[this.worksheet].cells({
+            range: this.whiteRange
           }, (err, cells) => {
             if (err) console.error(err);
             for(const row in cells.cells) {
               for (const col in cells.cells[row]) {
-                self.pack.white.push(cells.cells[row][col].value);
+                this.pack.white.push(cells.cells[row][col].value);
               }
             }
             
             // Since every pack has at least white cards, we can afford to omit the black ones in case they don't exist.
-            if (self.blackRange) {
-              spreadsheet.worksheets[self.worksheet].cells({
-                range: self.blackRange
+            if (this.blackRange) {
+              spreadsheet.worksheets[this.worksheet].cells({
+                range: this.blackRange
               }, (err, cells) => {
                 if (err) console.error(err);
                 for (const row in cells.cells) {
@@ -52,21 +51,21 @@ class Pack {
                   const pick = pickIndex > -1 ? parseInt(special[pickIndex + 1]) : 1;
                   const draw = drawIndex > -1 ? parseInt(special[drawIndex + 1]) : 1;
         
-                  self.pack.black.push({
+                  this.pack.black.push({
                     'content': obj[Object.keys(obj)[0]].value,
                     'pick': pick,
                     'draw' : draw
                   });
                 }
       
-                self._setQuantity();
-                self._writeData();
-                resolve(self.packName);
+                this._setQuantity();
+                this._writeData();
+                resolve(this.packName);
               });
             } else {
-              self._setQuantity();
-              self._writeData();
-              resolve(self.packName);
+              this._setQuantity();
+              this._writeData();
+              resolve(this.packName);
             }
           });
         });
