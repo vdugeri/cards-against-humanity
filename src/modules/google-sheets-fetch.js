@@ -194,7 +194,6 @@ for (const key in RANGES) {
 }
 
 // Fetch all packs.
-let promises = [];
 let callCooldown = 0;
 let i = 0;
 const totalPacks = Object.keys(PACKNAMES).length;
@@ -204,11 +203,11 @@ for (const key in PACKNAMES) {
   callCooldown+=200;
   setTimeout(() => {
     const pack = new Pack(spreadsheetID, key, PACKNAMES[key], RANGES[key]);
-    promises.push(pack.fetchData().then( name => {
+    pack.fetchData().then( name => {
       i++;
       console.log(`[${Math.floor(100 * i / totalPacks)}%] - Fetched ${name}.`);
       if (i == totalPacks) listPacks();
-    }).catch(err => console.error(err)))
+    }).catch(err => console.error(err))
   }, callCooldown);
 }
 
