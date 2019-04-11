@@ -18,18 +18,9 @@ if (process.argv[2] == 'list') {
 else if (!argumentList.hasOwnProperty(process.argv[2])) throw new Error(`Invalid argument! Use one of the following: ${Object.keys(argumentList).join(', ')}.`);
 
 // Pack Directory Paths
-let absolutePath;
-let relativePath;
-let allPacksAbsolutePath;
-if (process.argv[2] == 'official') {
-  absolutePath = './data/packs/';
-  relativePath = '../../data/packs/';
-  allPacksAbsolutePath = './data/';
-} else {
-  absolutePath = `./data/${process.argv[2]}/packs/`;
-  relativePath = `../../data/${process.argv[2]}/packs/`;
-  allPacksAbsolutePath = `./data/${process.argv[2]}/`;
-}
+const absolutePath = `./data/${process.argv[2]}/packs/`;
+const relativePath = `../../data/${process.argv[2]}/packs/`;
+const allPacksAbsolutePath = `./data/${process.argv[2]}/`;
 
 // RANGES and PACKNAMES
 const ranges = require(`./ranges/${process.argv[2]}/ranges.js`);

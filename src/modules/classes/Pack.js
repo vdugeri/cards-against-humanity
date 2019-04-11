@@ -3,13 +3,8 @@ const GoogleSpreadsheets = require('google-spreadsheets');
 
 class Pack {
   constructor(spreadsheetID, packID, packName, packType,range) {
-    if (packType == 'official') {
-      this.absolutePath = './data/packs/' + packID + '.json';
-      this.relativePath = '../../../data/packs/' + packID + '.json';
-    } else {
-      this.absolutePath = './data/' + packType + '/packs/' + packID + '.json';
-      this.relativePath = '../../../data/' + packType + '/packs/' + packID + '.json';
-    }
+    this.absolutePath = './data/' + packType + '/packs/' + packID + '.json';
+    this.relativePath = '../../../data/' + packType + '/packs/' + packID + '.json';
 
     this.pack = this._loadPackJSON();
     this.packName = packName;

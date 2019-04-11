@@ -13,25 +13,25 @@ A simple Cards Against Humanity API built with Node.js.
 
 ## Usage
 
-Get a list of all the packs available with:
+Get a list of all the official packs available with:
 
 ```
 https://cah-gcs-api.herokuapp.com/api/v1/packs
 ```
 
-Get a single pack (replace `$id` with the id of the pack you're trying to get) with:
+Get a single official pack (replace `$id` with the id of the pack you're trying to get) with:
 
 ```
 https://cah-gcs-api.herokuapp.com/api/v1/pack/$id
 ```
 
-Get a random pair of cards with:
+Get a random pair of official cards with:
 
 ```
 https://cah-gcs-api.herokuapp.com/api/v1/random
 ```
 
-Get a number of random pair of cards (up to 100) (replace `$number` with the number of pairs you want) with:
+Get a number of random pair of official cards (up to 100) (replace `$number` with the number of pairs you want) with:
 
 ```
 https://cah-gcs-api.herokuapp.com/api/v1/random?n=$number
@@ -42,6 +42,26 @@ or:
 ```
 https://cah-gcs-api.herokuapp.com/api/v1/random/$number
 ```
+
+Get a list of a certain type of card expansion packs (replace `$type` with the type of card pack you want) with:
+
+```
+https://cah-gcs-api.herokuapp.com/api/v1/$type
+```
+
+Get a specific pack from a certain type of card expansion (replace  `$type` with the type of card pack and `$id` with the id of the pack you want) with:
+
+```
+https://cah-gcs-api.herokuapp.com/api/v1/$type?id=$id
+```
+
+### List of card types
+
+* `official`
+
+* `third_party`
+
+  > "Will add more in the future..."
 
 ## Deploy to Heroku
 

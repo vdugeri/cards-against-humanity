@@ -1,88 +1,69 @@
 const express = require('express');
 const fs = require('fs');
+const random = require('./modules/api/random.js');
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 4000;
 
 const endpointPrefix = '/api/v1/';
 
-// Load Packs
-const packs = require('../data/packs.json');
-let packsObj = {};
-// Load Each Pack
-const packFiles = fs.readdirSync('./data/packs').filter(file => file.endsWith('.json'));
-for (const file of packFiles) {
-  const pack = require('../data/packs/' + file);
-  packsObj[pack.pack.id] = pack;
+let allPacksObj = {};
+let packList = {};
+
+// Load Packs with type
+function loadPacks(packType) {
+  allPacksObj[packType] = {};
+  const packFiles = fs.readdirSync('./data/' + packType + '/packs/').filter(file => file.endsWith('.json'));
+  for (const file of packFiles) {
+    const pack = require('../data/' + packType + '/packs/' + file);
+    allPacksObj[packType][pack.pack.id] = pack;
+  }
 }
 
-// Get Random Card Pair
-function randomPair(n = 1) {
-  return new Promise((resolve, reject) => {
-    if (isNaN(n) || n < 1 || n > 100) reject('Number of random cards needs to be between 1 and 100!');
+// Load each pack and save its packs.json to packList
+const dirs = fs.readdirSync('./data/').filter(dir => !dir.includes('.'));
+for (const dir of dirs) {
+  packList[dir] = require(`../data/${dir}/packs.json`);
+  loadPacks(dir);
+}
 
-    let result = [];
-    for (let i = 0; i < n; i++) {
-      const randomWhitePackIndex = Math.floor(Math.random() * Object.keys(packsObj).length);
-      const randomWhitePackProperty = packsObj[Object.keys(packsObj)[randomWhitePackIndex]];
-
-      const randomBlackPackIndex = Math.floor(Math.random() * Object.keys(packsObj).length);
-      // For some reason, I can't seem to define this with a ternary operation.
-      let randomBlackPackProperty = packsObj[Object.keys(packsObj)[randomBlackPackIndex]];
-      if (randomBlackPackProperty.black.length == 0) randomBlackPackProperty = packsObj['main_deck'];
-      
-      const randomBlackIndex = Math.floor(Math.random() * randomBlackPackProperty.black.length);
-      const randomWhiteIndex = Math.floor(Math.random() * randomWhitePackProperty.white.length);
-
-      const blackCard = randomBlackPackProperty.black[randomBlackIndex];
-      const whiteCard = randomWhitePackProperty.white[randomWhiteIndex];
-
-      result.push({
-        'index': i,
-        'black': {
-          'content': blackCard.content,
-          'origin': {
-            'name': randomBlackPackProperty.pack.name,
-            'id': randomBlackPackProperty.pack.id
-          },
-          'pick': blackCard.pick,
-          'draw' : blackCard.draw
-        },
-        'white': {
-          'content': whiteCard,
-          'origin': {
-            'name': randomWhitePackProperty.pack.name,
-            'id': randomWhitePackProperty.pack.id
-          }
-        }
-      });
+// Handle routes for every pack type
+for (const type of Object.keys(packList)) {
+  app.get(endpointPrefix + type, (req, res) => {
+    if (!req.query.id) {
+      console.log(`[REQUEST] ${req.ip} requested ${type} packs.`);
+      res.status(200).send(packList[type]);
+    } else if (allPacksObj[type].hasOwnProperty(req.query.id)){
+      console.log(`[REQUEST] ${req.ip} requested ${req.query.id} from ${type} pack.`);
+      res.status(200).send(allPacksObj[type][req.query.id])
+    } else {
+      res.status(404).send(`Pack does not exist. Please GET ${endpointPrefix}${type} to see a list of all the available ${type} packs.`);
     }
-    resolve(result);
   });
 }
 
 app.get(endpointPrefix + 'packs', (req, res) => {
-  console.log(`[REQUEST] ${req.ip} requested packs.`);
-  res.status(200).send(packs);
+  console.log(`[REQUEST] ${req.ip} requested official packs.`);
+  res.status(200).send(packList.official);
 });
 
 app.get(endpointPrefix + 'pack/:id', (req, res) => {
-  if (packsObj.hasOwnProperty(req.params.id)) {
-    console.log(`[REQUEST] ${req.ip} requested ${req.params.id} pack.`);
-    res.status(200).send(packsObj[req.params.id]);
+  if (allPacksObj.official.hasOwnProperty(req.params.id)) {
+    console.log(`[REQUEST] ${req.ip} requested ${req.params.id} from official pack.`);
+    res.status(200).send(allPacksObj.official[req.params.id]);
   } else {
-    res.status(404).send(`Pack does not exist. Please GET ${endpointPrefix}packs to see a list of all the available packs.`);
+    res.status(404).send(`Pack does not exist. Please GET ${endpointPrefix}packs to see a list of all the available official packs.`);
   }
 });
 
 app.get(endpointPrefix + 'random', (req, res) => {
   if (req.query.n) {
-    randomPair(parseInt(req.query.n)).then(result => {
+    random.randomPair(parseInt(req.query.n), allPacksObj.official).then(result => {
       console.log(`[REQUEST] ${req.ip} requested ${req.query.n} random pair(s).`);
       res.status(200).send(result);
     }).catch( err => res.status(400).send(err));
   } else {
-    randomPair().then(result => {
+    random.randomPair(1, allPacksObj.official).then(result => {
       console.log(`[REQUEST] ${req.ip} requested 1 random pair.`);
       res.status(200).send(result);
     }).catch( err => res.status(400).send(err));
@@ -90,7 +71,7 @@ app.get(endpointPrefix + 'random', (req, res) => {
 });
 
 app.get(endpointPrefix + 'random/:n', (req, res) => {
-  randomPair(parseInt(req.params.n)).then(result => {
+  random.randomPair(parseInt(req.params.n), allPacksObj.official).then(result => {
     console.log(`[REQUEST] ${req.ip} requested ${req.params.n} random pair(s).`);
     res.status(200).send(result);
   }).catch( err => res.status(400).send(err));
