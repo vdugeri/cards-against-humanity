@@ -1,0 +1,5 @@
+{
+  "name": "Cards Against Humanity API",
+  "description": "A simple Cards Against Humanity API build with Node.js",
+  "repository": "https://github.com/greencoast-studios/cards-against-humanity-api"
+}
