@@ -1,0 +1,255 @@
+{
+  "pack": {
+    "name": "Bad Hombres Against Fake News 1",
+    "id": "bad_hombres_against_fake_news_pack_1"
+  },
+  "black": [
+    {
+      "content": "Cards Against Humanity: Main Deck",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "______ + ______ = ______.",
+      "pick": 3,
+      "draw": 2
+    },
+    {
+      "content": "______ is a slippery slope that leads to ______.",
+      "pick": 2,
+      "draw": 1
+    },
+    {
+      "content": "______: good to the last drop.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "______: kid-tested, mother-approved.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "______. Betcha can't have just one!",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "______. High five, bro.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "______. It's a trap!",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "A romantic, candlelit dinner would be incomplete without ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "After the earthquake, Sean Penn brought ______ to the people of Haiti.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "Alternative medicine is now embracing the curative powers of ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "And the Academy Award for ______ goes to ______.",
+      "pick": 2,
+      "draw": 1
+    },
+    {
+      "content": "But before I kill you, Mr. Bond, I must show you ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "Coming to Broadway this season, ______: The Musical.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "Daddy, why is mommy crying?",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "Dear Abby, I'm having some trouble with ______ and would like your advice.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "During sex, I like to think about ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "For my next trick, I will pull ______ out of ______.",
+      "pick": 2,
+      "draw": 1
+    },
+    {
+      "content": "Here is the church Here is the steeple Open the doors And there is ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "How am I maintaining my relationship status?",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "How did I lose my virginity?",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "I drink to forget ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "I got 99 problems but ______ ain't one.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "I never truly understood ______ until I encountered ______.",
+      "pick": 2,
+      "draw": 1
+    },
+    {
+      "content": "I'm sorry, Professor, but I couldn't complete my homework because of ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "In a world ravaged by ______, our only solace is ______.",
+      "pick": 2,
+      "draw": 1
+    },
+    {
+      "content": "In L.A. County Jail, word is you can trade 200 cigarettes for ______.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "In M. Night Shyamalan's new movie, Bruce Willis discovers that ______ had really been ______ all along.",
+      "pick": 2,
+      "draw": 1
+    },
+    {
+      "content": "In the new Disney Channel Original Movie, Hannah Montana struggles with ______ for the first time.",
+      "pick": 1,
+      "draw": 1
+    },
+    {
+      "content": "Instead of coal, Santa now gives the bad children ______.",
+      "pick": 1,
+      "draw": 1
+    }
+  ],
+  "white": [
+    "Life for American Indians was forever changed when the White Man introduced them to ______.",
+    "Lifetime® presents \"______: the Story of ______.\"",
+    "Make a haiku.",
+    "Maybe she's born with it. Maybe it's ______.",
+    "MTV's new reality show features eight washed-up celebrities living with ______.",
+    "Next from J.K. Rowling: Harry Potter and the Chamber of ______.",
+    "Next on ESPN2: The World Series of ______.",
+    "Step 1: ______. Step 2: ______. Step 3: Profit.",
+    "That's right, I killed ______. How, you ask? ______.",
+    "The class field trip was completely ruined by ______.",
+    "This is the way the world ends This is the way the world ends Not with a bang but with ______.",
+    "TSA guidelines now prohibit ______ on airplanes.",
+    "War! What is it good for?",
+    "What are my parents hiding from me?",
+    "What did I bring back from Mexico?",
+    "What did the US airdrop to the children of Afghanistan?",
+    "What did Vin Diesel eat for dinner?",
+    "What ended my last relationship?",
+    "What gives me uncontrollable gas?",
+    "What helps Obama unwind?",
+    "What is Batman's guilty pleasure?",
+    "What never fails to liven up the party?",
+    "What will always get you laid?",
+    "What would grandma find disturbing, yet oddly charming?",
+    "What's a girl's best friend?",
+    "What's my secret power?",
+    "What's Teach for America using to inspire inner city students to succeed?",
+    "What's that smell?",
+    "What's that sound?",
+    "What's the next Happy Meal® toy?",
+    "What's there a ton of in heaven?",
+    "When I am a billionare, I shall erect a 50-foot statue to commemorate ______.",
+    "When I am President of the United States, I will create the Department of ______.",
+    "When I was tripping on acid, ______ turned into ______.",
+    "When Pharaoh remained unmoved, Moses called down a Plague of ______.",
+    "While the United States raced the Soviet Union to the moon, the Mexican government funneled millions of pesos into research on ______.",
+    "White people like ______.",
+    "Why am I sticky?",
+    "Why can't I sleep at night?",
+    "Why do I hurt all over?",
+    "______. That's how I want to die.",
+    "BILLY MAYS HERE FOR ______.",
+    "During his childhood, Salvador Dali produced hundreds of paintings of ______.",
+    "I do not know with what weapons World War III will be fought, but World War IV will be fought with ______.",
+    "In 1,000 years, when paper money is a distant memory, how will we pay for goods and services?",
+    "In Michael Jackson's final moments, he thought about ______.",
+    "Major League Baseball has banned ______ for giving players an unfair advantage.",
+    "Rumor has it that Vladimir Putin's favorite dish is ______ stuffed with ______.",
+    "Studies show that lab rats navigate mazes 50% faster after being exposed to ______.",
+    "The Smithsonian Museum of Natural History has just opened an interactive exhibit on ______.",
+    "What am I giving up for Lent?",
+    "What do old people smell like?",
+    "What does Dick Cheney prefer?",
+    "What don't you want to find in your Chinese food?",
+    "What gets better with age?",
+    "What will I bring back in time to convince people that I am a powerful wizard?",
+    "What's my anti-drug?",
+    "What's the most emo?",
+    "What's the new fad diet?",
+    "What's the next superhero/sidekick duo?",
+    "______. That was so metal.",
+    "A recent laboratory study shows that undergraduates have 50% less sex after being exposed to ______.",
+    "After four platinum albums and three Grammys, it's time to get back to my roots, to what inspired me to make music in the first place: ______.",
+    "Fun tip! When your man asks you to go down on him, try surprising him with ______ instead.",
+    "Hey Reddit! I'm ______. Ask me anything.",
+    "I get by with a little help from ______.",
+    "I'm going on a cleanse this week. Nothing but kale juice and ______.",
+    "Introducing the amazing superhero/sidekick duo! It's ______ and ______!",
+    "Introducing X-Treme Baseball! It's like baseball, but with ______!",
+    "Just saw this upsetting video! Please retweet!! #stop______",
+    "Kids, I don't need drugs to get high. I'm high on ______.",
+    "Now at the Smithsonian: an interactive exhibit on ______.",
+    "The new Chevy Tahoe. With the power and space to take ______ everywhere you go.",
+    "They said we were crazy. They said we couldn't put ______ inside of ______. They were wrong.",
+    "Today on /Maury/: \"Help! My son is ______!\"",
+    "Uh, hey guys, I know this was my idea, but I'm having serious doubts about ______.",
+    "Well if you'll excuse me, gentlemen, I have a date with ______.",
+    "What don't you want to find in your Kung Pao chicken?",
+    "What is George W. Bush thinking about right now?",
+    "What made my first kiss so awkward?",
+    "________: Once you pop, the fun don't stop!",
+    "________? Jim'll fix it!",
+    "________. That's why mums go to Iceland.",
+    "______? There's an app for that.",
+    "After Hurricane Katrina, Sean Penn brought ______ to all the people of New Orleans.",
+    "Airport security guidelines now prohibit ________ on airplanes.",
+    "And the BAFTA for ________ goes to ________. ",
+    "Anthropologists have recently discovered a primitive tribe that worships ______.",
+    "Channel 4 presents ________, the story of ________.",
+    "Channel 5's new reality show features eight washed-up celebrities living with ________."
+  ],
+  "quantity": {
+    "black": 30,
+    "white": 90,
+    "total": 120
+  }
+}

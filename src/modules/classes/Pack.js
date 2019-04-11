@@ -2,9 +2,14 @@ const fs = require('fs');
 const GoogleSpreadsheets = require('google-spreadsheets');
 
 class Pack {
-  constructor(spreadsheetID, packID, packName, range) {
-    this.absolutePath = './data/packs/' + packID + '.json';
-    this.relativePath = '../../../data/packs/' + packID + '.json';
+  constructor(spreadsheetID, packID, packName, packType,range) {
+    if (packType == 'official') {
+      this.absolutePath = './data/packs/' + packID + '.json';
+      this.relativePath = '../../../data/packs/' + packID + '.json';
+    } else {
+      this.absolutePath = './data/' + packType + '/packs/' + packID + '.json';
+      this.relativePath = '../../../data/' + packType + '/packs/' + packID + '.json';
+    }
 
     this.pack = this._loadPackJSON();
     this.packName = packName;
@@ -30,7 +35,7 @@ class Pack {
             range: this.whiteRange
           }, (err, cells) => {
             if (err) console.error(err);
-            for(const row in cells.cells) {
+            for (const row in cells.cells) {
               for (const col in cells.cells[row]) {
                 this.pack.white.push(cells.cells[row][col].value);
               }

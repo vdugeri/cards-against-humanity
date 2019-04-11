@@ -1,0 +1,13 @@
+{
+  "packs": [
+    {
+      "name": "Bad Hombres Against Fake News 1",
+      "id": "bad_hombres_against_fake_news_pack_1",
+      "quantity": {
+        "black": 30,
+        "white": 90,
+        "total": 120
+      }
+    }
+  ]
+}
