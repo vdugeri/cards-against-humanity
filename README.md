@@ -49,7 +49,7 @@ Get a list of a certain type of card expansion packs (replace `$type` with the t
 https://cah-gcs-api.herokuapp.com/api/v1/$type
 ```
 
-Get a specific pack from a certain type of card expansion (replace  `$type` with the type of card pack and `$id` with the id of the pack you want) with:
+Get a specific pack from a certain type of card expansion (replace `$type` with the type of card pack and `$id` with the id of the pack you want) with:
 
 ```
 https://cah-gcs-api.herokuapp.com/api/v1/$type?id=$id
@@ -61,7 +61,7 @@ https://cah-gcs-api.herokuapp.com/api/v1/$type?id=$id
 
 * `third_party`
 
-  > "Will add more in the future..."
+  > Note: Will add more in the future...
 
 ## Deploy to Heroku
 
