@@ -10,7 +10,7 @@ For more information, you can visit this [Reddit Thread](https://www.reddit.com/
 
 ## Usage
 
-Please refer to the [API reference](api_reference.md) to see a detailed guide requesting this API.
+Please refer to the [API reference](api_reference.md) to see a detailed guide on requesting this API.
 
 ## Small Notice
 
