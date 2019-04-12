@@ -7,6 +7,9 @@ const HTTP_PORT = process.env.PORT || 4000;
 
 const endpointPrefix = '/api/v1/';
 
+// Serve docs site
+app.use('/', express.static('public'));
+
 let allPacksObj = {};
 let packList = {};
 

@@ -1,0 +1,31 @@
+# Site Information
+site_name: Cards Against Humanity API
+site_description: A simple Cards Against Humanity API build with Node.js.
+site_author: Greencoast Studios
+site_url: https://cah-gcs-api.herokuapp.com
+
+# Directory
+site_dir : public
+
+# Social
+extra:
+  social:
+    - type: "github"
+      link: "https://github.com/greencoast-studios"
+
+# Copyright
+copyright: 'Copyright &copy; 2019 Greencoast Studios'
+
+# Google Analytics
+google_analytics: ['UA-138276156-1', 'cah-gcs-api.herokuapp.com']
+
+# Navigation
+nav:
+  - Home: index.md
+  - API Reference: api_reference.md
+  - GitHub Repo: "https://github.com/greencoast-studios/cards-against-humanity-api"
+
+# Theme
+theme:
+  name: bootstrap4
+extra_css: [extra.css]
