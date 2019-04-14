@@ -1,0 +1,16 @@
+// Google Sheets Ranges
+// Object(Key: Pack ID, Value: [WORKSHEET_INDEX, WHITE, BLACK])
+const RANGES = {
+
+}
+
+// Pack Names
+// Object(Key: Pack ID, Value: Pack Name)
+const PACKNAMES = {
+
+}
+
+module.exports = {
+  RANGES,
+  PACKNAMES
+}
