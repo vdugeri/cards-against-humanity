@@ -155,7 +155,7 @@
 <pre><code>https://cah-gcs-api.herokuapp.com/api/v1/:type
 </code></pre>
 <blockquote>
-<p>Replace the <code>type</code> paramater with the type of expansion packs you need. See <a href="#expansion-pack-types">Expansion Pack Types</a> to learn which types you can request.</p>
+<p>Replace the <code>type</code> parameter with the type of expansion packs you need. See <a href="#expansion-pack-types">Expansion Pack Types</a> to learn which types you can request.</p>
 </blockquote>
 <p>This returns a <strong>JSON</strong> with the following structure:</p>
 <pre><code class="json">{
@@ -179,7 +179,7 @@
 <pre><code>https://cah-gcs-api.herokuapp.com/api/v1/type?id=$id
 </code></pre>
 <blockquote>
-<p>Replace the <code>id</code> query parameter with the ID of the expansion pack you want. See <a href="#list-a-certain-type-of-packs">List a Certain Type of Packs</a>.</p>
+<p>Replace <code>type</code> with the type of the expansion pack and the <code>id</code> query parameter with the ID of the expansion pack you want. See <a href="#list-a-certain-type-of-packs">List a Certain Type of Packs</a>.</p>
 </blockquote>
 <p>This returns a <strong>JSON</strong> with the following structure:</p>
 <pre><code class="json">{
@@ -244,7 +244,7 @@
 <p>The current expansion pack types available are:</p>
 <ul>
 <li><code>official</code></li>
-<li><code>third-party</code></li>
+<li><code>third_party</code></li>
 </ul>
 <h2 id="future-improvements">Future Improvements</h2>
 <p>As stated previously, this API is not finished, we're still missing lots of third-party pack expansions. We're also planning on bringing a custom card upload feature and migrate our data to a more robust database.</p>

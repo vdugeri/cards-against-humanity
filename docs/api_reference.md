@@ -77,7 +77,7 @@ You can request a list of all the available packs of a certain type with:
 
     https://cah-gcs-api.herokuapp.com/api/v1/:type
 
-> Replace the `type` paramater with the type of expansion packs you need. See [Expansion Pack Types](#expansion-pack-types) to learn which types you can request.
+> Replace the `type` parameter with the type of expansion packs you need. See [Expansion Pack Types](#expansion-pack-types) to learn which types you can request.
 
 This returns a **JSON** with the following structure:
 
@@ -104,7 +104,7 @@ You can request a single card pack from a certain type with:
 
     https://cah-gcs-api.herokuapp.com/api/v1/type?id=$id
 
-> Replace the `id` query parameter with the ID of the expansion pack you want. See [List a Certain Type of Packs](#list-a-certain-type-of-packs).
+> Replace `type` with the type of the expansion pack and the `id` query parameter with the ID of the expansion pack you want. See [List a Certain Type of Packs](#list-a-certain-type-of-packs).
 
 This returns a **JSON** with the following structure:
 
@@ -176,7 +176,7 @@ Currently the random cards are only pulled from the official card expansions.
 The current expansion pack types available are:
 
 * `official`
-* `third-party`
+* `third_party`
 
 ## Future Improvements
 
