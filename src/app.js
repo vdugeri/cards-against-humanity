@@ -1,11 +1,26 @@
 const express = require('express');
 const fs = require('fs');
+const http = require('http');
 const random = require('./modules/api/random.js');
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 4000;
 
 const endpointPrefix = '/api/v1/';
+
+// Heroku Keep Alive Function
+function keepAlive() {
+  setInterval( () => {
+    const info = {
+      host: 'cah-gcs-api.herokuapp.com',
+      port: 80,
+      path: '/'
+    }
+    http.get(info, _ => {
+      console.log('Heroku keep alive...');
+    }).on('error', console.error)
+  }, 20 * 60 * 1000); // Runs every 20 minutes.
+}
 
 // Serve docs site
 app.use('/', express.static('public'));
@@ -83,3 +98,5 @@ app.get(endpointPrefix + 'random/:n', (req, res) => {
 app.listen(HTTP_PORT, () => {
   console.log(`[INFO] Server running on port ${HTTP_PORT}.`);
 });
+
+keepAlive();
