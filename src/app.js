@@ -25,6 +25,8 @@ function keepAlive() {
 // Serve docs site
 app.use('/', express.static('public'));
 
+const types = require('../data/types.json');
+
 let allPacksObj = {};
 let packList = {};
 
@@ -59,6 +61,16 @@ for (const type of Object.keys(packList)) {
     }
   });
 }
+
+app.get(endpointPrefix, (req, res) => {
+  console.log(`[REQUEST] ${req.ip} requested expansion types.`);
+  res.status(200).send(types);
+});
+
+app.get(endpointPrefix + 'types', (req, res) => {
+  console.log(`[REQUEST] ${req.ip} requested expansion types.`);
+  res.status(200).send(types);
+});
 
 app.get(endpointPrefix + 'packs', (req, res) => {
   console.log(`[REQUEST] ${req.ip} requested official packs.`);

@@ -4,11 +4,47 @@ Currently our API is limited to `GET` requests, in the future we plan on adding 
 
 ## GET Requests
 
+### List All The Expansion Types
+
+You can request a list of the types of expansions along with the id's of their packs.
+
+```
+https://cah-gcs-api.herokuapp.com/api/v1/
+```
+
+or with:
+
+```
+https://cah-gcs-api.herokuapp.com/api/v1/types
+```
+
+This returns a **JSON** with the following structures:
+
+``` json
+{
+  "types": [
+    {
+      "id": "official",
+      "name": "Official",
+      "packs": [
+        "2012_holiday_pack",
+        "2013_holiday_pack",
+        ...
+      ],
+      "quantity": 70
+    },
+    ...
+  ]
+}
+```
+
 ### List All The Official Packs
 
 You can request a list of all the official packs available with:
 
-    https://cah-gcs-api.herokuapp.com/api/v1/packs
+```
+https://cah-gcs-api.herokuapp.com/api/v1/packs
+```
 
 This returns a **JSON** with the following structure:
 
@@ -35,7 +71,9 @@ The `packs.id` property is derived from the expansion name with URL friendly cha
 
 You can request a single official pack with:
 
-    https://cah-gcs-api.herokuapp.com/api/v1/pack/:id
+```
+https://cah-gcs-api.herokuapp.com/api/v1/pack/:id
+```
 
 > Replace the `id` parameter with the ID of the expansion pack you want. See [how to get the expansion pack ID](#list-all-the-official-packs).
 
@@ -75,7 +113,9 @@ Cards Against Humanity has a wide variety of third-party cards that are also ava
 
 You can request a list of all the available packs of a certain type with:
 
-    https://cah-gcs-api.herokuapp.com/api/v1/:type
+```
+https://cah-gcs-api.herokuapp.com/api/v1/:type
+```
 
 > Replace the `type` parameter with the type of expansion packs you need. See [Expansion Pack Types](#expansion-pack-types) to learn which types you can request.
 
@@ -102,7 +142,9 @@ This returns a **JSON** with the following structure:
 
 You can request a single card pack from a certain type with:
 
-    https://cah-gcs-api.herokuapp.com/api/v1/type?id=$id
+```
+https://cah-gcs-api.herokuapp.com/api/v1/type?id=$id
+```
 
 > Replace `type` with the type of the expansion pack and the `id` query parameter with the ID of the expansion pack you want. See [List a Certain Type of Packs](#list-a-certain-type-of-packs).
 
@@ -138,7 +180,9 @@ This returns a **JSON** with the following structure:
 
 You can request a number (up to 100) of random card pairs with:
 
-    https://cah-gcs-api.herokuapp.com/api/v1/random?n=$number
+```
+https://cah-gcs-api.herokuapp.com/api/v1/random?n=$number
+```
 
 > Replace the `number` query parameter with the number of random pairs you want. This query parameter is optional and its default value is `1`.
 
@@ -180,4 +224,4 @@ The current expansion pack types available are:
 
 ## Future Improvements
 
-As stated previously, this API is not finished, we're still missing lots of third-party pack expansions. We're also planning on bringing a custom card upload feature and migrate our data to a more robust database.
+As stated previously, this API is not finished, we're still missing lots of third-party pack expansions. We're also planning on bringing a custom card upload feature.

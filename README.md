@@ -2,6 +2,12 @@
 
 A simple Cards Against Humanity API built with Node.js.
 
+This is an educational project. You're free to do whatever you want with this.
+
+A separate version of this API hosted on Firebase is available [here](https://github.com/greencoast-studios/firebase-cards-against-humanity-api).
+
+The API above is a bit different than this one, the routes are a bit different and the random endpoint is no longer available.
+
 ## Dependencies
 
 | Dependency:                                                              | Description:                                                     |
