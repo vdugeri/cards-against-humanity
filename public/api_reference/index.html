@@ -93,10 +93,38 @@
 <h1 id="api-reference">API Reference</h1>
 <p>Currently our API is limited to <code>GET</code> requests, in the future we plan on adding a <code>POST</code> request feature to add your own custom card packs.</p>
 <h2 id="get-requests">GET Requests</h2>
+<h3 id="list-all-the-expansion-types">List All The Expansion Types</h3>
+<p>You can request a list of the types of expansions along with the id's of their packs.</p>
+<pre><code>https://cah-gcs-api.herokuapp.com/api/v1/
+</code></pre>
+
+<p>or with:</p>
+<pre><code>https://cah-gcs-api.herokuapp.com/api/v1/types
+</code></pre>
+
+<p>This returns a <strong>JSON</strong> with the following structures:</p>
+<pre><code class="json">{
+  &quot;types&quot;: [
+    {
+      &quot;id&quot;: &quot;official&quot;,
+      &quot;name&quot;: &quot;Official&quot;,
+      &quot;packs&quot;: [
+        &quot;2012_holiday_pack&quot;,
+        &quot;2013_holiday_pack&quot;,
+        ...
+      ],
+      &quot;quantity&quot;: 70
+    },
+    ...
+  ]
+}
+</code></pre>
+
 <h3 id="list-all-the-official-packs">List All The Official Packs</h3>
 <p>You can request a list of all the official packs available with:</p>
 <pre><code>https://cah-gcs-api.herokuapp.com/api/v1/packs
 </code></pre>
+
 <p>This returns a <strong>JSON</strong> with the following structure:</p>
 <pre><code class="json">{
   &quot;packs&quot;: [
@@ -119,6 +147,7 @@
 <p>You can request a single official pack with:</p>
 <pre><code>https://cah-gcs-api.herokuapp.com/api/v1/pack/:id
 </code></pre>
+
 <blockquote>
 <p>Replace the <code>id</code> parameter with the ID of the expansion pack you want. See <a href="#list-all-the-official-packs">how to get the expansion pack ID</a>.</p>
 </blockquote>
@@ -154,6 +183,7 @@
 <p>You can request a list of all the available packs of a certain type with:</p>
 <pre><code>https://cah-gcs-api.herokuapp.com/api/v1/:type
 </code></pre>
+
 <blockquote>
 <p>Replace the <code>type</code> parameter with the type of expansion packs you need. See <a href="#expansion-pack-types">Expansion Pack Types</a> to learn which types you can request.</p>
 </blockquote>
@@ -178,6 +208,7 @@
 <p>You can request a single card pack from a certain type with:</p>
 <pre><code>https://cah-gcs-api.herokuapp.com/api/v1/type?id=$id
 </code></pre>
+
 <blockquote>
 <p>Replace <code>type</code> with the type of the expansion pack and the <code>id</code> query parameter with the ID of the expansion pack you want. See <a href="#list-a-certain-type-of-packs">List a Certain Type of Packs</a>.</p>
 </blockquote>
@@ -211,6 +242,7 @@
 <p>You can request a number (up to 100) of random card pairs with:</p>
 <pre><code>https://cah-gcs-api.herokuapp.com/api/v1/random?n=$number
 </code></pre>
+
 <blockquote>
 <p>Replace the <code>number</code> query parameter with the number of random pairs you want. This query parameter is optional and its default value is <code>1</code>.</p>
 </blockquote>
@@ -247,7 +279,7 @@
 <li><code>third_party</code></li>
 </ul>
 <h2 id="future-improvements">Future Improvements</h2>
-<p>As stated previously, this API is not finished, we're still missing lots of third-party pack expansions. We're also planning on bringing a custom card upload feature and migrate our data to a more robust database.</p>
+<p>As stated previously, this API is not finished, we're still missing lots of third-party pack expansions. We're also planning on bringing a custom card upload feature.</p>
 
 <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
   <li class="last-updated-holder displayDate loading">
