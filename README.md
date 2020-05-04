@@ -11,7 +11,7 @@ The API above is a bit different than this one, the routes are a bit different a
 ## Dependencies
 
 | Dependency:                                                              | Description:                                                     |
-|--------------------------------------------------------------------------|------------------------------------------------------------------|
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
 | [babel-cli](https://www.npmjs.com/package/babel-cli)                     | Babel command line.                                              |
 | [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) | Babel preset for all es2015 plugins.                             |
 | [express](https://www.npmjs.com/package/express)                         | Fast, unopinionated, minimalist web framework for node.          |
@@ -20,13 +20,13 @@ The API above is a bit different than this one, the routes are a bit different a
 
 ## Usage
 
-Please refer to the [API Reference](https://cah-gcs-api.herokuapp.com/) site to see a detailed guide on requesting this API.
+Please refer to the [API Reference](https://cards-a-humanity.herokuapp.com/) site to see a detailed guide on requesting this API.
 
 ### List of card types
 
-* `official`
+- `official`
 
-* `third_party`
+- `third_party`
 
   > Note: Will add more in the future...
 

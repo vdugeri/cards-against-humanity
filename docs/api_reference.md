@@ -9,18 +9,18 @@ Currently our API is limited to `GET` requests, in the future we plan on adding 
 You can request a list of the types of expansions along with the id's of their packs.
 
 ```
-https://cah-gcs-api.herokuapp.com/api/v1/
+https://cards-a-humanity.herokuapp.com/api/v1/
 ```
 
 or with:
 
 ```
-https://cah-gcs-api.herokuapp.com/api/v1/types
+https://cards-a-humanity.herokuapp.com/api/v1/types
 ```
 
 This returns a **JSON** with the following structures:
 
-``` json
+```json
 {
   "types": [
     {
@@ -43,12 +43,12 @@ This returns a **JSON** with the following structures:
 You can request a list of all the official packs available with:
 
 ```
-https://cah-gcs-api.herokuapp.com/api/v1/packs
+https://cards-a-humanity.herokuapp.com/api/v1/packs
 ```
 
 This returns a **JSON** with the following structure:
 
-``` json
+```json
 {
   "packs": [
     {
@@ -72,14 +72,14 @@ The `packs.id` property is derived from the expansion name with URL friendly cha
 You can request a single official pack with:
 
 ```
-https://cah-gcs-api.herokuapp.com/api/v1/pack/:id
+https://cards-a-humanity.herokuapp.com/api/v1/pack/:id
 ```
 
 > Replace the `id` parameter with the ID of the expansion pack you want. See [how to get the expansion pack ID](#list-all-the-official-packs).
 
 This returns a **JSON** with the following structure:
 
-``` json
+```json
 {
   "pack": {
     "name": "Expansion Pack Name",
@@ -105,7 +105,7 @@ This returns a **JSON** with the following structure:
 }
 ```
 
-Each black (or prompt) card is represented as an *object* with it's *text content* and it's special rules (how many white cards you can *pick* and how many cards you *draw* after playing the round).
+Each black (or prompt) card is represented as an _object_ with it's _text content_ and it's special rules (how many white cards you can _pick_ and how many cards you _draw_ after playing the round).
 
 ### List a Certain Type of Packs
 
@@ -114,14 +114,14 @@ Cards Against Humanity has a wide variety of third-party cards that are also ava
 You can request a list of all the available packs of a certain type with:
 
 ```
-https://cah-gcs-api.herokuapp.com/api/v1/:type
+https://cards-a-humanity.herokuapp.com/api/v1/:type
 ```
 
 > Replace the `type` parameter with the type of expansion packs you need. See [Expansion Pack Types](#expansion-pack-types) to learn which types you can request.
 
 This returns a **JSON** with the following structure:
 
-``` json
+```json
 {
   "packs": [
     {
@@ -143,14 +143,14 @@ This returns a **JSON** with the following structure:
 You can request a single card pack from a certain type with:
 
 ```
-https://cah-gcs-api.herokuapp.com/api/v1/type?id=$id
+https://cards-a-humanity.herokuapp.com/api/v1/type?id=$id
 ```
 
 > Replace `type` with the type of the expansion pack and the `id` query parameter with the ID of the expansion pack you want. See [List a Certain Type of Packs](#list-a-certain-type-of-packs).
 
 This returns a **JSON** with the following structure:
 
-``` json
+```json
 {
   "pack": {
     "name": "Expansion Pack Name",
@@ -181,14 +181,14 @@ This returns a **JSON** with the following structure:
 You can request a number (up to 100) of random card pairs with:
 
 ```
-https://cah-gcs-api.herokuapp.com/api/v1/random?n=$number
+https://cards-a-humanity.herokuapp.com/api/v1/random?n=$number
 ```
 
 > Replace the `number` query parameter with the number of random pairs you want. This query parameter is optional and its default value is `1`.
 
-This returns an *array* with the following structure:
+This returns an _array_ with the following structure:
 
-``` json
+```json
 [
   {
     "index":0,
@@ -219,8 +219,8 @@ Currently the random cards are only pulled from the official card expansions.
 
 The current expansion pack types available are:
 
-* `official`
-* `third_party`
+- `official`
+- `third_party`
 
 ## Future Improvements
 
